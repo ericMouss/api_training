@@ -28,7 +28,7 @@ class HelloControllerIT {
     HelloControllerIT(@Autowired MockMvc mockMvc) {
         this.mockMvc = mockMvc;
     }
-
+    /*
     @Test
     void hello_delegates_to_repository_when_name_param_is_present() throws Exception {
         when(repository.getHelloFor(any())).thenReturn(new HelloData("test"));
@@ -45,7 +45,7 @@ class HelloControllerIT {
                         """));
 
         verify(repository).getHelloFor("test");
-    }
+    }*/
 
     @Test
     void hello_delegates_to_random_when_name_param_is_absent() throws Exception {
