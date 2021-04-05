@@ -31,7 +31,7 @@ public class AgifyService {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if(response.isSuccessful()){
-                    //ResponseBody agifyResponse = response.body();
+                    ResponseBody agifyResponse = response.body();
                     //ListeInscrit.put(userInfo.userName + ";"+ userInfo.userCountry, new UserInfo(UserInfo.userName, UserInfo.userName, UserInfo.userTweeter, UserInfo.userCountry, UserInfo.userSex, UserInfo.userSexPref));
                 }
             }
