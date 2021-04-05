@@ -28,6 +28,7 @@ class HelloControllerIT {
     HelloControllerIT(@Autowired MockMvc mockMvc) {
         this.mockMvc = mockMvc;
     }
+
     /*
     @Test
     void hello_delegates_to_repository_when_name_param_is_present() throws Exception {

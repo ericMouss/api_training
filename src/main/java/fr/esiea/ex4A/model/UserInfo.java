@@ -3,7 +3,6 @@ package fr.esiea.ex4A.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserInfo {
-
     public final String userCountry;
     public final String userName;
     public final String userEmail;
@@ -36,5 +35,4 @@ public class UserInfo {
     MatchesInfo asMatch() {
         return new MatchesInfo(userName, userTweeter);
     }
-
 }

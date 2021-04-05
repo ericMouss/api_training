@@ -15,3 +15,4 @@ public interface AgifyClient {
     @Headers("Accept:application/json")
     Call<List<MatchesInfo>> getMatches(@Query("userName") String name, @Query("userCountry") String country);
 }
+

@@ -3,7 +3,6 @@ package fr.esiea.ex4A.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
 import java.util.Objects;
 
 public class MatchesInfo {
@@ -12,7 +11,7 @@ public class MatchesInfo {
 
     @JsonCreator
     public MatchesInfo( @JsonProperty(value = "userName", required = true) String name,
-        @JsonProperty(value = "userTweeter", required = true) String twitter){
+                        @JsonProperty(value = "userTweeter", required = true) String twitter){
         this.name = name;
         this.twitter = twitter;
     }

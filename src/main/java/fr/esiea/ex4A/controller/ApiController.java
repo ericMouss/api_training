@@ -1,6 +1,5 @@
 package fr.esiea.ex4A.controller;
 
-import fr.esiea.ex4A.model.AgifyService;
 import fr.esiea.ex4A.model.MatchesInfo;
 import fr.esiea.ex4A.model.UserInfo;
 import org.springframework.http.MediaType;
