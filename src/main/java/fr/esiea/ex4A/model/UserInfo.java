@@ -9,8 +9,7 @@ public class UserInfo {
     public final String userTweeter;
     public final String userSex;
     public final String userSexPref;
-    private final int age;
-
+    public final int age;
 
     public UserInfo(@JsonProperty("userCountry") String userCountry,
                     @JsonProperty("userName") String userName,
