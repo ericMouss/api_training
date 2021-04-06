@@ -1,6 +1,6 @@
 package fr.esiea.ex4A.model;
 
-import okhttp3.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.*;
 
