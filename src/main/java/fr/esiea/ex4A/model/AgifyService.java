@@ -21,23 +21,16 @@ public class AgifyService {
     }
 
     public void nouveauInscrit(UserInfo inscriptionData){
-        final String key = inscriptionData.userName + ";"+ inscriptionData.userCountry;
-        if(inscrits.containsKey(key)){
-            return;
-        }
         Call<ResponseBody> call = agifyClient.submitInscription(inscriptionData);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if(response.isSuccessful()){
-                    ResponseBody agifyResponse = response.body();
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) { if(response.isSuccessful()){
+                    ResponseBody agifyResponse = (ResponseBody) agifyClient.getMatches(inscriptionData.userCountry, inscriptionData.userName);
                     inscrits.put(inscriptionData.userName + ";"+ inscriptionData.userCountry, new UserInfo(inscriptionData.userEmail, inscriptionData.userName, inscriptionData.userTweeter, inscriptionData.userCountry, inscriptionData.userSex, inscriptionData.userSexPref, inscriptionData.age));
                 }
             }
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                call.cancel();
-            }
+            public void onFailure(Call<ResponseBody> call, Throwable t) { call.cancel(); }
         });
     }
 
@@ -47,13 +40,13 @@ public class AgifyService {
         if(data == null){
             return null;
         }
-        final List<MatchesInfo> matchesDatas = new ArrayList<MatchesInfo>();
+        final List<MatchesInfo> matchesData = new ArrayList<>();
         inscrits.forEach((k, v) -> {
             if(data.userSex.equals(v.userSexPref) && data.userSexPref.equals(v.userSex) && (Math.abs(data.age - v.age)) < 5)
             {
-                matchesDatas.add(new MatchesInfo(v.userName,v.userTweeter));
+                matchesData.add(new MatchesInfo(v.userName,v.userTweeter));
             }
         });
-        return matchesDatas;
+        return matchesData;
     }
 }
